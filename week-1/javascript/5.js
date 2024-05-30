@@ -4,3 +4,9 @@
  * @param {number} celsius The temperature in Celsius.
  * @return {number} The temperature in Fahrenheit.
  */
+function celsiusToFahrenheit(celsius) {
+    var fahrenheit = (celsius * 9/5) + 32;
+    var result = celsius + "°C = " + fahrenheit + "°F";
+    return result;
+  }
+  console.log(celsiusToFahrenheit(60));
