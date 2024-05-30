@@ -16,3 +16,72 @@
  * @param {string[]} items
  * @returns {string}
  */
+
+const itemsList = [
+  {
+    name: "apple",
+    price: 10,
+  },
+  {
+    name: "orange",
+    price: 10,
+  },
+  {
+    name: "grapes",
+    price: 180,
+  },
+  {
+    name: "banana",
+    price: 7,
+  },
+  {
+    name: "melon",
+    price: 50,
+  },
+];
+
+let cart = [];
+
+function addItems(items) {
+  if (cart.length <= 10) {
+    cart.push(items);
+  } else {
+    console.log("The cart is full.");
+  }
+  return cart;
+}
+function discardItem(items) {
+  if (cart.includes(items)) {
+    const indx = cart.indexOf(items);
+    cart.splice(indx, 1);
+    console.log(cart);
+  } else if (!cart.length) {
+    console.log("Add item first");
+  } else {
+    console.log("Item Not Found");
+  }
+}
+
+function displayTotalPrice() {
+  let sum = 0;
+  for (const items of itemsList) {
+    for (const cartItem of cart) {
+      if (items.name == cartItem) {
+        sum += items.price;
+      }
+    }
+  }
+  console.log(`Total: ${sum}`);
+}
+
+function displayCartQuantity() {
+  const size = cart.length;
+  console.log(`Cart Quantity: ${size}`);
+}
+// discardItem("banana");
+addItems("apple");
+addItems("banana");
+addItems("melon");
+discardItem("banana");
+displayTotalPrice();
+displayCartQuantity();
