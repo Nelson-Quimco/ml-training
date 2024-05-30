@@ -4,13 +4,14 @@
  * @return {boolean} True if the number is even, false if it is odd.
  */
 
-function number1(num){
-if (num % 2 == 0) {
-    return true
+function ifBool(num){
+// if (num % 2 === 0 ) {
+//     return true
     
-} else {
-    return false
+// } else {
+//     return false
+// }
+return num % 2 === 0 ? true:false;
 }
-
-}
-number1(2);
+// ifBool(2)
+console.log(ifBool(3));
