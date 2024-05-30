@@ -12,3 +12,15 @@ const entities = {
   '"': "&quot;",
   "'": "&apos;",
 };
+
+function convertEntities(str) {
+  for (var entity in entities) {
+    str = str.replace(new RegExp(entities[entity], "g"), entity);
+  }
+
+  return str;
+}
+
+var str = "&lt;div&gt;Hello, &quot;world&quot;!&lt;/div&gt;";
+var result = convertEntities(str);
+console.log(result);
