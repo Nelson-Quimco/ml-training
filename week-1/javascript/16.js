@@ -27,16 +27,16 @@ function computeAverage(students) {
   for (const mark in students) {
     if (Object.hasOwnProperty.call(students, mark)) {
       const element = students[mark];
-      if (element.mark > 90) {
-        console.log(element.name + ": A");
-      } else if (element.mark > 80 && element.mark <= 90) {
-        console.log(element.name + ": B");
-      } else if (element.mark > 70 && element.mark <= 80) {
-        console.log(element.name + ": C");
-      } else if (element.mark > 60 && element.mark <= 70) {
-        console.log(element.name + ": D");
-      } else {
+      if (element.mark < 60) {
         console.log(element.name + ": F");
+      } else if (element.mark > 60 && element.mark <= 69) {
+        console.log(element.name + ": D");
+      } else if (element.mark > 70 && element.mark <= 79) {
+        console.log(element.name + ": C");
+      } else if (element.mark > 80 && element.mark <= 89) {
+        console.log(element.name + ": B");
+      } else {
+        console.log(element.name + ": A");
       }
     }
   }
