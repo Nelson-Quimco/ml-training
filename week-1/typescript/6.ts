@@ -4,3 +4,11 @@
  * @param {number} fahrenheit The temperature in Fahrenheit.
  * @return {number} The temperature in Celsius.
  */
+var fahrenheit = 140;
+var celsius = fahrenheitToCelsius(fahrenheit);
+console.log(fahrenheit + "°F = " + celsius + "°C");
+
+function fahrenheitToCelsius(fahrenheit: number) {
+  var celsius = ((fahrenheit - 32) * 5) / 9;
+  return celsius;
+}
