@@ -6,3 +6,29 @@
  * Example array: [5, 2, 8, 1, 9, 3]
  * Expected output: "The lowest number is 1 and the highest number is 9."
  */
+
+function highOrLow(arr: number[]): string {
+  var lowest = arr[0];
+  var highest = arr[0];
+
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < lowest) {
+      lowest = arr[i];
+    }
+    if (arr[i] > highest) {
+      highest = arr[i];
+    }
+  }
+
+  return (
+    "The lowest number is " +
+    lowest +
+    " and the highest number is " +
+    highest +
+    "."
+  );
+}
+
+var arr = [5, 2, 8, 1, 9, 3];
+var result = highOrLow(arr);
+console.log(result);
