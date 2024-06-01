@@ -14,6 +14,10 @@
  * > 90 : A
  * @return {number} The average marks of the students.
  */
+interface studentInterface {
+  name: string;
+  mark: number;
+}
 
 const students = [
   { name: "John", mark: 90 },
@@ -22,3 +26,30 @@ const students = [
   { name: "Tom", mark: 65 },
   { name: "Nancy", mark: 75 },
 ];
+
+function computeAverage(students: studentInterface[]): number {
+  let grades = 0;
+  for (const mark in students) {
+    if (Object.hasOwnProperty.call(students, mark)) {
+      const element = students[mark];
+
+      if (element.mark < 60) {
+        console.log(element.name + ": F");
+      } else if (element.mark > 60 && element.mark <= 69) {
+        console.log(element.name + ": D");
+      } else if (element.mark > 70 && element.mark <= 79) {
+        console.log(element.name + ": C");
+      } else if (element.mark > 80 && element.mark <= 89) {
+        console.log(element.name + ": B");
+      } else {
+        console.log(element.name + ": A");
+      }
+      grades += element.mark;
+    }
+  }
+  const average = grades / students.length;
+  console.log("AVERAGE : ", average);
+
+  return average;
+}
+computeAverage(students);
