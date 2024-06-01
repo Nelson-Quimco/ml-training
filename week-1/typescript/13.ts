@@ -6,3 +6,20 @@
  * Example string: "The quick brown fox jumps over the lazy dog"
  * Expected output: "The Quick Brown Fox Jumps Over The Lazy Dog"
  */
+
+function toUpper(str: string) {
+  var words = str.split(" ");
+
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i];
+    if (word.length > 0) {
+      words[i] = word[0].toUpperCase() + word.slice(1);
+    }
+  }
+
+  return words.join(" ");
+}
+
+var str = "The quick brown fox jumps over the lazy dog";
+var result = toUpper(str);
+console.log(result);
