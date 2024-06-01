@@ -19,3 +19,21 @@
  * @param {string} password
  * @returns {string}
  */
+
+function passwordValidation(password: string) {
+  if (password.length < 8) {
+    return "Password must be at least 8 characters long";
+  } else if (!/[A-Z]/.test(password)) {
+    return "Password must contain at least one uppercase letter";
+  } else if (!/[a-z]/.test(password)) {
+    return "Password must contain at least one lower letter";
+  } else if (!/\d/.test(password)) {
+    return "Password must contain at least one number";
+  } else if (!/[@!#$%^&?*]/.test(password)) {
+    return "Password must contain at least one special character";
+  } else {
+    return "Password is valid";
+  }
+}
+
+console.log(passwordValidation("Teeeeee@eeeeeeee1eeeeeee"));
