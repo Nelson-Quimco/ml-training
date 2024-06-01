@@ -7,3 +7,16 @@
  * @param {string} str
  * @returns {string}
  */
+
+function swapCase(str: string) {
+  return str
+    .split("")
+    .map((char) => {
+      return char === char.toLowerCase()
+        ? char.toUpperCase()
+        : char.toLowerCase();
+    })
+    .join("");
+}
+console.log(swapCase("Hello World"));
+swapCase("Hello World");
