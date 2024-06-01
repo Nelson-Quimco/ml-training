@@ -16,8 +16,7 @@
  * @param {string[]} items
  * @returns {string}
  */
-
-const itemsList = [
+var itemsList = [
   {
     name: "apple",
     price: 10,
@@ -39,49 +38,58 @@ const itemsList = [
     price: 50,
   },
 ];
-
-let cart = [];
-
+var cart = [];
 function addItems(items) {
-  if (cart.length <= 10) {
+  if (cart.length < 10) {
     cart.push(items);
+    return "Items: ".concat(cart);
   } else {
-    console.log("The cart is full.");
+    return "The cart is full.";
   }
-  return cart;
 }
 function discardItem(items) {
   if (cart.includes(items)) {
-    const indx = cart.indexOf(items);
+    var indx = cart.indexOf(items);
     cart.splice(indx, 1);
-    console.log(cart);
+    return ""
+      .concat(items, " Successfully Discarded \nUpdated Items: ")
+      .concat(cart);
   } else if (!cart.length) {
-    console.log("Add item first");
+    return "Add item first";
   } else {
-    console.log("Item Not Found");
+    return "Item Not Found";
   }
 }
-
 function displayTotalPrice() {
-  let sum = 0;
-  for (const items of itemsList) {
-    for (const cartItem of cart) {
+  var sum = 0;
+  for (var _i = 0, itemsList_1 = itemsList; _i < itemsList_1.length; _i++) {
+    var items = itemsList_1[_i];
+    for (var _a = 0, cart_1 = cart; _a < cart_1.length; _a++) {
+      var cartItem = cart_1[_a];
       if (items.name == cartItem) {
         sum += items.price;
       }
     }
   }
-  console.log(`Total: ${sum}`);
+  return "Total: ".concat(sum);
 }
-
 function displayCartQuantity() {
-  const size = cart.length;
-  console.log(`Cart Quantity: ${size}`);
+  var size = cart.length;
+  return "Cart Quantity: ".concat(size);
 }
-// discardItem("banana");
-addItems("apple");
-addItems("banana");
-addItems("melon");
-discardItem("banana");
-displayTotalPrice();
-displayCartQuantity();
+console.log(addItems("apple"));
+console.log(addItems("banana"));
+console.log(addItems("melon"));
+console.log(addItems("banana"));
+console.log(addItems("orange"));
+console.log(addItems("grapes"));
+console.log(addItems("apple"));
+console.log(addItems("melon"));
+console.log(addItems("banana"));
+console.log(addItems("orange"));
+console.log(addItems("grapes"));
+console.log(addItems("apple"));
+console.log(addItems("orange"));
+console.log(discardItem("banana"));
+console.log(displayTotalPrice());
+console.log(displayCartQuantity());
