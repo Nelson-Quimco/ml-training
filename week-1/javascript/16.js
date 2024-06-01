@@ -24,9 +24,10 @@ const students = [
 ];
 
 function computeAverage(students) {
-  for (const mark in students) {
+  var grades = 0;
+  for (var mark in students) {
     if (Object.hasOwnProperty.call(students, mark)) {
-      const element = students[mark];
+      var element = students[mark];
       if (element.mark < 60) {
         console.log(element.name + ": F");
       } else if (element.mark > 60 && element.mark <= 69) {
@@ -38,7 +39,11 @@ function computeAverage(students) {
       } else {
         console.log(element.name + ": A");
       }
+      grades += element.mark;
     }
   }
+  var average = grades / students.length;
+  console.log("AVERAGE : ", average);
+  return average;
 }
 computeAverage(students);
